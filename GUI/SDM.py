@@ -314,7 +314,7 @@ class Ui_SDM(object):
         self.menubar.addAction(self.menuFile.menuAction())
 
         self.retranslateUi(SDM)
-        self.tabWidget.setCurrentIndex(3)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(SDM)
 
     def retranslateUi(self, SDM):
