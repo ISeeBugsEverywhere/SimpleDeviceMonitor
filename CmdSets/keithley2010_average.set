@@ -1,0 +1,9 @@
+//comment test
+*idn?
+*rst
+//clear of trace buffer:
+trac:cle
+:conf:curr:dc
+:sense:curr:aver:count 100
+:sense:curr:aver:stat on
+

@@ -1,0 +1,12 @@
+*idn?
+*rst
+//voltamperinės charakteristikos matavimai:
+:outp off
+:inp off
+:sour:func:mode volt
+:sens:func ""curr""
+:sens:curr:rang:auto on
+:sens:curr:nplc:auto off
+:sens:curr:nplc 1
+
+

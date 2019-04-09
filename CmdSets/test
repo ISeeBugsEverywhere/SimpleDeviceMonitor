@@ -1,0 +1,19 @@
+
+*idn?
+KEITHLEY INSTRUMENTS INC.,MODEL2010,1315746,A15 /A02 
+*rst
+
+trac:cle
+
+:conf:curr:dc
+
+:SENSE:curr:AVER:COUNT 100
+
+:SENSE:curr:AVER:STAT ON
+
+:read?
+-2.36259151E-08 
+==END OF SCRIPT==
+
+:read?
+-2.26860223E-08 

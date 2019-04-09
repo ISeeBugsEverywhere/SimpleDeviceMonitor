@@ -1,0 +1,5 @@
+:sour:volt {x}
+:outp on
+:inp on
+:meas:curr?
+delay=5

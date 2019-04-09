@@ -1,0 +1,19 @@
+*idn?
+*rst
+trac:cle
+:conf:volt:dc
+:sense:volt:aver:stat off
+sample:coun 100
+form:elem read
+:read?
+delay=10
+:conf:curr:dc
+:sense:curr:aver:stat off
+sample:coun 20
+form:elem read,unit
+:read?
+delay=5
+*idn?
+*cls
+//set local mode:
+:syst:key 17
