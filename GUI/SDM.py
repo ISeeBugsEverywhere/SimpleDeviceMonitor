@@ -2,11 +2,12 @@
 
 # Form implementation generated from reading ui file 'SDM.ui'
 #
-# Created by: PyQt5 UI code generator 5.10.1
+# Created by: PyQt5 UI code generator 5.12
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_SDM(object):
     def setupUi(self, SDM):
@@ -221,9 +222,6 @@ class Ui_SDM(object):
         self.cycle_tab.setObjectName("cycle_tab")
         self.gridLayout_8 = QtWidgets.QGridLayout(self.cycle_tab)
         self.gridLayout_8.setObjectName("gridLayout_8")
-        self.return_exp_btn = QtWidgets.QPushButton(self.cycle_tab)
-        self.return_exp_btn.setObjectName("return_exp_btn")
-        self.gridLayout_8.addWidget(self.return_exp_btn, 0, 0, 1, 1)
         self.gridLayout_6 = QtWidgets.QGridLayout()
         self.gridLayout_6.setObjectName("gridLayout_6")
         self.counts_radio = QtWidgets.QRadioButton(self.cycle_tab)
@@ -299,11 +297,14 @@ class Ui_SDM(object):
         self.gridLayout_9.addWidget(self.label_15, 2, 5, 1, 3)
         self.gridLayout_7.addWidget(self.groupBox, 1, 0, 1, 2)
         self.gridLayout_8.addLayout(self.gridLayout_7, 2, 0, 1, 3)
+        self.return_exp_btn = QtWidgets.QPushButton(self.cycle_tab)
+        self.return_exp_btn.setObjectName("return_exp_btn")
+        self.gridLayout_8.addWidget(self.return_exp_btn, 0, 0, 1, 3)
         self.tabWidget.addTab(self.cycle_tab, "")
         self.gridLayout_2.addWidget(self.tabWidget, 3, 0, 1, 5)
         SDM.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(SDM)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 777, 35))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 777, 31))
         self.menubar.setObjectName("menubar")
         self.menuFile = QtWidgets.QMenu(self.menubar)
         self.menuFile.setObjectName("menuFile")
@@ -361,7 +362,6 @@ class Ui_SDM(object):
         self.use_cycle_box.setText(_translate("SDM", "Use Cycle?"))
         self.cycle_prams_btn.setText(_translate("SDM", "Cycle parameters"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.exp_tab), _translate("SDM", "Basic exeriment set-up"))
-        self.return_exp_btn.setText(_translate("SDM", "Return to experiment"))
         self.counts_radio.setText(_translate("SDM", "Counts"))
         self.label_14.setText(_translate("SDM", "Delay between scripts"))
         self.step_radio.setText(_translate("SDM", "Steps from to"))
@@ -374,8 +374,10 @@ class Ui_SDM(object):
         self.replace_variable_box.setText(_translate("SDM", "Replace variable by step value:"))
         self.var_box.setText(_translate("SDM", "{x}"))
         self.label_15.setText(_translate("SDM", "<== Separator for EntryBox"))
+        self.return_exp_btn.setText(_translate("SDM", "Return to experiment"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.cycle_tab), _translate("SDM", "Cycle parameters"))
         self.menuFile.setTitle(_translate("SDM", "Fi&le"))
         self.actionClose.setText(_translate("SDM", "Close"))
+
 
 from GUI.serialPlotWidget.serialPortWidget import SerialPortWidget

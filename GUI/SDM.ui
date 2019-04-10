@@ -437,13 +437,6 @@
         <string>Cycle parameters</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_8">
-        <item row="0" column="0">
-         <widget class="QPushButton" name="return_exp_btn">
-          <property name="text">
-           <string>Return to experiment</string>
-          </property>
-         </widget>
-        </item>
         <item row="1" column="0">
          <layout class="QGridLayout" name="gridLayout_6">
           <item row="0" column="0">
@@ -639,6 +632,13 @@
           </item>
          </layout>
         </item>
+        <item row="0" column="0" colspan="3">
+         <widget class="QPushButton" name="return_exp_btn">
+          <property name="text">
+           <string>Return to experiment</string>
+          </property>
+         </widget>
+        </item>
        </layout>
       </widget>
      </widget>
@@ -651,7 +651,7 @@
      <x>0</x>
      <y>0</y>
      <width>777</width>
-     <height>35</height>
+     <height>31</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
