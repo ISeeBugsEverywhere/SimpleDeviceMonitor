@@ -1,6 +1,6 @@
 #Introduction
 
-The **Simple Device Monitor** is quite simple application targeted to control or watch laboratory devices under Linux operating system.
+The **Simple Device Monitor** is quite simple application targeted to control or watch laboratory devices under Linux and Windows operating systems.
 
 The other purpose was to have general application able to connect any device and test an output from it.
 
@@ -11,6 +11,8 @@ This applications can connect to **RS232** ( COM ) port-attached devices, as wel
 - **RS232** devices should work without any quirks, if these devices do not use very specific protocol.
 
 The Simple Device Monitor uses *python-vxi11* library to communicate with **Network**-based devices, **QtSerialPort** to communicate with *RS232* devices. **USBTMC** devices are treated as regular files, therefore **USBTMC** devices will work under Linux OS only. 
+
+There is a standalone version for Linux users in *../Linux* folder. It should work under any x64 Linux distribution, but it is not tested.
 
 All necessary requirements can be installed using regular package managers such *apt*, *yum* and so on, or using *pip* command, if preferred. 
 
