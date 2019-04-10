@@ -81,7 +81,7 @@ It will delay an execution of the next statement for the 5 seconds. You can spec
 
 In order to automatically run some commands, at first write them down into a command set file. It is designed to use three different files, first one for an initialization of device, second one will be commands for the actual experiment, third one will be for the end of an experiment.
 
-For example, first file sets up a source meter, second one contains actual measurement commands, and third file closes and resets an source meter.
+For example, first file sets up a source meter, second one contains actual measurement commands, and third file closes and resets a source meter.
 
 If **▢Use Cycle** is checked, the file with experiment commands will be executed few times. 
 
