@@ -4,6 +4,8 @@ The **Simple Device Monitor** is quite simple application targeted to control or
 
 The other purpose was to have general application able to connect any device and test an output from it.
 
+Sometimes it is useful to have such simple application to test a device ability to work with Linux OS and to check an output and its format from a device.
+
 This applications can connect to **RS232** ( COM ) port-attached devices, as well as to **USB** and **Network** devices. There are few requirements for **USB** and **Network**-based devices:
 
 -  **USB** devices should be compatible with *USBTMC* protocol. In other words - Linux should detect them as **USBTMC** devices and create node */dev/usbtmcN*, where N - {0, 1, 2, ... }
