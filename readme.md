@@ -30,7 +30,7 @@ If everything is OK, there will be all necessary dependencies automatically inst
 
 ***Usage and Limitations***
 
-![Main Window of Simple Device Monitor](SDM.png)
+![](SDM.png)
 
 The Simple Device Monitor able to connect up to three different-connected devices. For example, is t possible to connect to one **RS232** device, to one **USBTMC** device and to one *Networked* device, but it is impossible to have more than one **RS232** device at the same time.
 
