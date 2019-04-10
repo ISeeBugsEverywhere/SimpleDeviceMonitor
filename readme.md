@@ -32,7 +32,7 @@ If everything is OK, there will be all necessary dependencies automatically inst
 
 ![](SDM.png)
 
-The Simple Device Monitor able to connect up to three different-connected devices. For example, is t possible to connect to one **RS232** device, to one **USBTMC** device and to one *Networked* device, but it is impossible to have more than one **RS232** device at the same time.
+The Simple Device Monitor able to connect up to three different-connected devices. For example, it is possible to connect to one **RS232** device, to one **USBTMC** device and to one *Networked* device, but it is impossible to have more than one **RS232** device at the same time.
 
 It is impossible to send commands to all devices at the same time - you need to specify exact device to work with.
 
