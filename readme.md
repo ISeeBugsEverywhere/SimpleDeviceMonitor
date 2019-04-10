@@ -71,3 +71,18 @@ It is even possible to specify delay between commands with keyword *delay*:
 >\*rst
 
 It will delay an execution of the next statement for the 5 seconds. You can specify any time amount you need.
+
+##Set-up of an simple experiment
+![SDM2](SDM2.png  "SDM2")
+
+In order to automatically run some commands, at first write them down into a command set file. It is designed to use three different files, first one for an initialization of device, second one will be commands for the actual experiment, third one will be for the end of an experiment.
+
+For example, first file sets up a source meter, second one contains actual measurement commands, and third file closes and resets an source meter.
+
+If **▢Use Cycle** is checked, the file with experiment commands will be executed few times. 
+
+![SDM3](SDM3.png  "SDM3")
+
+Cycle parameters are specified in the '**Cycle parameters**' tab. Here is it possible to choose, if commands need just to be repeated few times, or there is a variable in a script.
+
+If **Steps from to** is chosen, and all next check-boxes are checked, the **Simple Device Monitor** will search specified string in command sets and will replace them by current step value.
