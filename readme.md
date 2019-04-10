@@ -47,19 +47,27 @@ For example, if you need to measure solar cell, resistor and so on and if you ha
 It is possible to write all commands into one file, and send them all without entering command by command.
 The structure of command sets is very simple: just write regular **SCPI** commands line by line:
 >\*idn?
+
 >\*rst
 
 It is possible to write comments using two backslashes in the beginning of line:
 >//comment
+
 >\*idn?
+
 >//other comment
+
 >\*rst
 
 It is even possible to specify delay between commands with keyword *delay*:
 >//comment
+
 >\*idn?
+
 >delay=5
+
 >//other comment
+
 >\*rst
 
 It will delay an execution of the next statement for the 5 seconds. You can specify any time amount you need.
