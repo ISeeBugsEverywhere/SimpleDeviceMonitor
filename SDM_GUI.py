@@ -51,6 +51,7 @@ class SDM_window(QtWidgets.QMainWindow):
         self.ui.saveButton.clicked.connect(self.save_fn)
         self.ui.actionClose.triggered.connect(self.quit_fn)
         self.quit_shortcut = QtWidgets.QShortcut(QtGui.QKeySequence("Ctrl+Q"), self)
+        self.ui.force_read.clicked.connect(self.comInfo)
         # events of shortcuts:
         self.quit_shortcut.activated.connect(self.quit_fn)
         #exp commands:

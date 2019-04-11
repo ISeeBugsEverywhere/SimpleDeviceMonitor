@@ -90,3 +90,11 @@ If **▢Use Cycle** is checked, the file with experiment commands will be execut
 Cycle parameters are specified in the '**Cycle parameters**' tab. Here is it possible to choose, if commands need just to be repeated few times, or there is a variable in a script.
 
 If **Steps from to** is chosen, and all next check-boxes are checked, the **Simple Device Monitor** will search specified string in command sets and will replace them by current step value.
+
+##Tested devices
+This application was tested with the following devices:
+-**Keysight B2985A**, source meter, connected over the **LAN**. Output +, Input +.
+-**Keithley 2010**, multimeter, connected over **RS232** port. Output +, Input +.
+-**TGA1010A**, function generator, connected over **RS232** port. Some commands were not working - no output was obtained, but it was possible to set some parameters. The working example is provided in *CmdSet* folder.
+
+Example command sets are provided in a *CmdSets* folder.
