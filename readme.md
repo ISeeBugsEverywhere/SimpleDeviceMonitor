@@ -93,8 +93,9 @@ If **Steps from to** is chosen, and all next check-boxes are checked, the **Simp
 
 ##Tested devices
 This application was tested with the following devices:
--**Keysight B2985A**, source meter, connected over the **LAN**. Output +, Input +.
--**Keithley 2010**, multimeter, connected over **RS232** port. Output +, Input +.
--**TGA1010A**, function generator, connected over **RS232** port. Some commands were not working - no output was obtained, but it was possible to set some parameters. The working example is provided in *CmdSet* folder. It looks like all setters (commands for setting some parameters) are working except getters (commands to obtain some values such IDN from **\*idn?**). 
+
+- **Keysight B2985A**, source-meter, connected over the **LAN**. Output +, Input +.
+- **Keithley 2010**, multi-meter, connected over **RS232** port. Output +, Input +.
+- **TGA1010A**, function generator, connected over **RS232** port. Some commands were not working - no output was obtained, but it was possible to set some parameters. The working example is provided in *CmdSet* folder. It looks like all setters (commands for setting some parameters) are working except getters (commands to obtain some values such IDN from **\*idn?**). 
 
 Example command sets are provided in a *CmdSets* folder.
