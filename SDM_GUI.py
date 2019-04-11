@@ -51,7 +51,7 @@ class SDM_window(QtWidgets.QMainWindow):
         self.ui.saveButton.clicked.connect(self.save_fn)
         self.ui.actionClose.triggered.connect(self.quit_fn)
         self.quit_shortcut = QtWidgets.QShortcut(QtGui.QKeySequence("Ctrl+Q"), self)
-        self.ui.force_read.clicked.connect(self.comInfo)
+        self.ui.force_read.clicked.connect(self.comInf)
         # events of shortcuts:
         self.quit_shortcut.activated.connect(self.quit_fn)
         #exp commands:
@@ -662,9 +662,15 @@ class SDM_window(QtWidgets.QMainWindow):
             print(ex)
         pass
 
+    def comInf(self):
+        bytes_waiting = self.comDevice.bytesAvailable()
+        print('Bytes '+str(bytes_waiting))
+        pass
+
     def comInfo(self):
         # print("TRIGGERED")
         bytes_from_port = self.comDevice.readAll()
+        # print('Bytes from port', bytes_from_port)
         # text = self.ui.Continuous_output.toPlainText()
         # print(bytes_from_port, "   OUTPUT")
         try:
