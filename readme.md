@@ -50,29 +50,29 @@ For example, if you need to measure solar cell, resistor and so on and if you ha
 
 It is possible to write all commands into one file, and send them all without entering command by command.
 The structure of command sets is very simple: just write regular **SCPI** commands line by line:
->\*idn?
-
->\*rst
+```
+*idn?
+*rst
+```
 
 It is possible to write comments using two backslashes in the beginning of line:
->//comment
 
->\*idn?
-
->//other comment
-
->\*rst
+```
+//comment
+*idn?
+//other comment
+*rst
+```
 
 It is even possible to specify delay between commands with keyword *delay*:
->//comment
 
->\*idn?
-
->delay=5
-
->//other comment
-
->\*rst
+```
+//comment
+*idn?
+delay=5
+//other comment
+*rst
+```
 
 It will delay an execution of the next statement for the 5 seconds. You can specify any time amount you need.
 
@@ -83,7 +83,7 @@ In order to automatically run some commands, at first write them down into a com
 
 For example, first file sets up a source meter, second one contains actual measurement commands, and third file closes and resets an source meter.
 
-If **▢Use Cycle** is checked, the file with experiment commands will be executed few times. 
+If  **▢Use Cycle** is checked, the file with experiment commands will be executed few times. 
 
 ![SDM3](SDM3.png  "SDM3")
 
