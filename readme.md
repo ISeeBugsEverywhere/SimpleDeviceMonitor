@@ -26,9 +26,11 @@ In order to run this application, a host computer has to have:
 - PyQt5
 
 Everything can be installed using the following commands (tested under Ubuntu 18.04 LTS):
->sudo apt-get install python3 python3-pyqt5 python3-pyqt5.qtserialport python3-pip
->
->sudo pip3 install python-vxi11
+
+```bash
+sudo apt-get install python3 python3-pyqt5 python3-pyqt5.qtserialport python3-pip
+sudo pip3 install python-vxi11
+```
 
 If everything is OK, there will be all necessary dependencies automatically installed.
 
@@ -92,6 +94,7 @@ Cycle parameters are specified in the '**Cycle parameters**' tab. Here is it pos
 If **Steps from to** is chosen, and all next check-boxes are checked, the **Simple Device Monitor** will search specified string in command sets and will replace founded string by current step value.
 
 ##Tested devices
+
 This application was tested with the following devices:
 
 - **Keysight B2985A**, source-meter, connected over the **LAN**. Output +, Input +.
