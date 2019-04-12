@@ -31,7 +31,14 @@ class USBTMC:
         os.close(self.FILE)
 
     def ask(self, cmd, delay=1, length=4000):
-        self.write(cmd)
-        time.sleep(delay)
-        ret = self.read(length)
-        return ret
+        string = None
+        try:
+            self.write(cmd)
+            time.sleep(delay)
+            ret = self.read(length)
+            string = str(ret, encoding='utf-8', errors='ignore')
+        except Exception as ex:
+            string = 'USBTMC failed!'
+            print('USBTMC failed:')
+            print(str(ex))
+        return string

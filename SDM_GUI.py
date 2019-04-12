@@ -413,10 +413,11 @@ class SDM_window(QtWidgets.QMainWindow):
             pass
         pass
 
-    def append_exp_paragraph(self, txt, status=0):
+    def append_exp_paragraph(self, text, status=0):
         html_red = '<font color="red">{x}</font>'
         html_black='<font color="black">{x}</font>'
         html_magenta='<font color="purple">{x}</font>'
+        txt = str(text)
         if status == 0:
             self.ui.exp_output_box.moveCursor(QtGui.QTextCursor.End)
             self.ui.exp_output_box.insertPlainText(self.new_line)
@@ -441,10 +442,11 @@ class SDM_window(QtWidgets.QMainWindow):
             self.ui.exp_output_box.moveCursor(QtGui.QTextCursor.End)
         pass
 
-    def append_exp_text(self, txt, status=0):
+    def append_exp_text(self, text, status=0):
         html_red = '<font color="red">{x}</font>'
         html_black='<font color="black">{x}</font>'
         html_magenta='<font color="blue">{x}</font>'
+        txt = str(text)
         if status == 0:
             self.ui.exp_output_box.moveCursor(QtGui.QTextCursor.End)
             self.ui.exp_output_box.insertHtml(html_black.replace('{x}',txt))
@@ -460,7 +462,8 @@ class SDM_window(QtWidgets.QMainWindow):
             self.ui.exp_output_box.moveCursor(QtGui.QTextCursor.End)
         pass
 
-    def append_html_paragraph(self, txt, status=0):
+    def append_html_paragraph(self, text, status=0):
+        txt = str(text)
         html_red = '<font color="red">{x}</font>'
         html_black='<font color="black">{x}</font>'
         html_magenta='<font color="purple">{x}</font>'
@@ -488,7 +491,8 @@ class SDM_window(QtWidgets.QMainWindow):
             self.ui.output_box.moveCursor(QtGui.QTextCursor.End)
         pass
 
-    def append_html_text(self, txt, status=0):
+    def append_html_text(self, text, status=0):
+        txt = str(text)
         html_red = '<font color="red">{x}</font>'
         html_black='<font color="black">{x}</font>'
         html_magenta='<font color="blue">{x}</font>'

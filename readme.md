@@ -37,6 +37,7 @@ For Windows users, there is a standalone version in a *../Windows* directory, te
 
 #Usage and Limitations
 
+
 ![](SDM.png)
 
 The Simple Device Monitor able to connect up to three different-connected devices. For example, it is possible to connect to one **RS232** device, to one **USBTMC** device and to one *Networked* device, but it is impossible to have more than one **RS232** device at the same time.
