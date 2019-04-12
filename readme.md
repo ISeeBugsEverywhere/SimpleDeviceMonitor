@@ -26,9 +26,11 @@ In order to run this application, a host computer has to have:
 - PyQt5
 
 Everything can be installed using the following commands (tested under Ubuntu 18.04 LTS):
->sudo apt-get install python3 python3-pyqt5 python3-pyqt5.qtserialport python3-pip
->
->sudo pip3 install python-vxi11
+
+```bash
+sudo apt-get install python3 python3-pyqt5 python3-pyqt5.qtserialport python3-pip
+sudo pip3 install python-vxi11
+```
 
 If everything is OK, there will be all necessary dependencies automatically installed.
 
@@ -93,10 +95,11 @@ Cycle parameters are specified in the '**Cycle parameters**' tab. Here is it pos
 If **Steps from to** is chosen, and all next check-boxes are checked, the **Simple Device Monitor** will search specified string in command sets and will replace founded string by current step value.
 
 ##Tested devices
+
 This application was tested with the following devices:
 
 - **Keysight B2985A**, source-meter, connected over the **LAN**. Output +, Input +.
 - **Keithley 2010**, multi-meter, connected over **RS232** port. Output +, Input +.
-- **TGA1010A**, function generator, connected over **RS232** port. Some commands were not working - no output was obtained, but it was possible to set some parameters. The working example is provided in *CmdSet* folder. It looks like all setters (commands for setting some parameters) are working except getters (commands to obtain some values such IDN from **\*idn?**). 
+- **TGA1010A**, function generator, connected over **RS232** port. Some commands were not working - no output was obtained, but it was possible to set some parameters. The working example is provided in *CmdSet* folder. It looks like all setters (commands for setting some parameters) are working except getters (commands to obtain some values such IDN from **\*idn?**). The reason is pretty weird - the device does not return any bytes into RS232 port.
 
 Example command sets are provided in a *CmdSets* folder.
