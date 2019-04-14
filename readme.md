@@ -49,7 +49,7 @@ It is impossible to send commands to all devices at the same time - you need to 
 There is an ability to load a bunch of commands from file and it is possible to run very basic experiment with one specified device.
 For example, if you need to measure solar cell, resistor and so on and if you have quite expensive source meter such *Keysight B2980*, you can do with this application.
 
-#Command sets
+# Command sets
 
 It is possible to write all commands into one file, and send them all without entering command by command.
 The structure of command sets is very simple: just write regular **SCPI** commands line by line:
