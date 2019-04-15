@@ -1,4 +1,4 @@
-#Introduction
+# Introduction
 
 The **Simple Device Monitor** is quite simple application targeted to control or watch laboratory devices under Linux and Windows operating systems.
 
@@ -37,7 +37,7 @@ If everything is OK, there will be all necessary dependencies automatically inst
 For Windows users, there is a standalone version in a *../Windows* directory, tested under Windows 10, 64-bit.
 
 
-#Usage and Limitations
+# Usage and Limitations
 
 
 ![](SDM.png)
@@ -49,7 +49,7 @@ It is impossible to send commands to all devices at the same time - you need to 
 There is an ability to load a bunch of commands from file and it is possible to run very basic experiment with one specified device.
 For example, if you need to measure solar cell, resistor and so on and if you have quite expensive source meter such *Keysight B2980*, you can do with this application.
 
-#Command sets
+# Command sets
 
 It is possible to write all commands into one file, and send them all without entering command by command.
 The structure of command sets is very simple: just write regular **SCPI** commands line by line:
@@ -79,7 +79,7 @@ delay=5
 
 It will delay an execution of the next statement for the 5 seconds. You can specify any time amount you need.
 
-##Set-up of an simple experiment
+## Set-up of an simple experiment
 ![SDM2](SDM2.png  "SDM2")
 
 In order to automatically run some commands, at first write them down into a command set file. It is designed to use three different files, first one for an initialization of device, second one will be commands for the actual experiment, third one will be for the end of an experiment.
@@ -94,7 +94,7 @@ Cycle parameters are specified in the '**Cycle parameters**' tab. Here is it pos
 
 If **Steps from to** is chosen, and all next check-boxes are checked, the **Simple Device Monitor** will search specified string in command sets and will replace founded string by current step value.
 
-##Tested devices
+## Tested devices
 
 This application was tested with the following devices:
 
