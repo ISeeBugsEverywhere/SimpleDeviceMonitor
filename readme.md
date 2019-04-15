@@ -102,5 +102,6 @@ This application was tested with the following devices:
 - **Keithley 2010**, multi-meter, connected over **RS232** port. Output +, Input +.
 - **TGA1010A**, function generator, connected over **RS232** port. Some commands were not working - no output was obtained, but it was possible to set some parameters. The working example is provided in *CmdSet* folder. It looks like all setters (commands for setting some parameters) are working except getters (commands to obtain some values such IDN from **\*idn?**). The reason is pretty weird - the device does not return any bytes into RS232 port.
 - **Rigol DS1102E**, osciloscope, connected over **USB**. Working example is provided in *CmdSets* folder.
+- **Rigol DP832**, power supply, connected over **USB**. The device responded to *\*idn?* command successfully. Nothing more has been tested. 
 
 Example command sets are provided in a *CmdSets* folder.
