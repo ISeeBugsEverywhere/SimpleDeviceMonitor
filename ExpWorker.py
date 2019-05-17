@@ -16,6 +16,7 @@ class ExpWorker(QObject):
     def __init__(self):
         super().__init__()
         self.cmds = None
+        self.cmds_2nd = None
         self.comDevice = None
         self.tcpDevice = None
         self.usbDevice = None
@@ -82,6 +83,11 @@ class ExpWorker(QObject):
             self.cmds = cmds
         pass
 
+    def set_cmds_2nd(self, cmds):
+        if cmds is not None:
+            self.cmds_2nd = cmds
+        pass
+
     def set_delay(self, delay=1):
         self.delay = delay
         pass
@@ -89,6 +95,7 @@ class ExpWorker(QObject):
     def exec_exp(self, rpl=''):
         # there will be the main code of this thread
         script_delay = 0
+        # for first device:
         if self.comDevice is not None and self.active_device == 0 and not self._require_stop:
             for i in self.cmds:
                 if 'delay' in i:
@@ -182,6 +189,99 @@ class ExpWorker(QObject):
                         pass
                     pass
             # self.command.emit('==END OF SCRIPT==')
+        #     for the second device:
+        if self.comDevice is not None and self.active_device_2nd == 0 and not self._require_stop:
+            for i in self.cmds:
+                if 'delay' in i:
+                    s, d = i.split('=')
+                    script_delay = int(d)
+                    time.sleep(script_delay)
+                    pass
+                if not self._require_stop and 'delay' not in i and '//' not in i and not self._replace:
+                    self.command.emit('')
+                    self.comport.emit(str(i))
+                    time.sleep(self.delay)
+                    pass
+                if not self._require_stop and 'delay' not in i and '//' not in i and self._replace:
+                    self.command.emit('')
+                    self.comport.emit(str(i).replace(self._replacement, rpl))
+                    time.sleep(self.delay)
+                    pass
+                pass
+            # self.command.emit('==END OF SCRIPT==')
+        elif self.tcpDevice is not None and self.active_device_2nd == 1 and not self._require_stop:
+            # print('tcp connected?')
+            for i in self.cmds:
+                if 'delay' in i:
+                    s, d = i.split('=')
+                    script_delay = int(d)
+                    time.sleep(script_delay)
+                    pass
+                if not self._require_stop and 'delay' not in i and '//' not in i and not self._replace:
+                    if '?' in i and not self._require_stop:
+                        self.command.emit('')
+                        answer = self.tcpDevice.ask(str(i))
+                        self.output.emit(1, str(answer))
+                        time.sleep(self.delay)
+                        pass
+                    else:
+                        # self.command.emit('')
+                        self.tcpDevice.write(str(i))
+                        # self.output.emit(str(answer))
+                        time.sleep(self.delay)
+                        pass
+                    pass
+                if not self._require_stop and 'delay' not in i and '//' not in i and self._replace:
+                    if '?' in i and not self._require_stop:
+                        self.command.emit('')
+                        answer = self.tcpDevice.ask(str(i).replace(self._replacement, rpl))
+                        self.output.emit(1, str(answer))
+                        time.sleep(self.delay)
+                        pass
+                    else:
+                        # self.command.emit('')
+                        self.tcpDevice.write(str(i).replace(self._replacement, rpl))
+                        # self.output.emit(str(answer))
+                        time.sleep(self.delay)
+                        pass
+                    pass
+            # self.command.emit('==END OF SCRIPT==')
+        elif self.usbDevice is not None and self.active_device_2nd == 2 and not self._require_stop:
+            # print('usb connected?')
+            for i in self.cmds:
+                if 'delay' in i:
+                    s, d = i.split('=')
+                    script_delay = int(d)
+                    time.sleep(script_delay)
+                    pass
+                if not self._require_stop and 'delay' not in i and '//' not in i and not self._replace:
+                    if '?' in i and not self._require_stop:
+                        self.command.emit('')
+                        answer = self.usbDevice.ask(str(i))
+                        self.output.emit(1, str(answer))
+                        time.sleep(self.delay)
+                        pass
+                    else:
+                        # self.command.emit('')
+                        self.usbDevice.write(str(i))
+                        # self.output.emit(str(answer))
+                        time.sleep(self.delay)
+                        pass
+                    pass
+                if not self._require_stop and 'delay' not in i and '//' not in i and self._replace:
+                    if '?' in i and not self._require_stop:
+                        self.command.emit('')
+                        answer = self.usbDevice.ask(str(i).replace(self._replacement, rpl))
+                        self.output.emit(1, str(answer))
+                        time.sleep(self.delay)
+                        pass
+                    else:
+                        # self.command.emit('')
+                        self.usbDevice.write(str(i).replace(self._replacement, rpl))
+                        # self.output.emit(str(answer))
+                        time.sleep(self.delay)
+                        pass
+                    pass
         pass
 
     @pyqtSlot()
