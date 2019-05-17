@@ -24,9 +24,14 @@ class SDM_window(QtWidgets.QMainWindow):
         self.str = None
         self.int = None
         self.cmds = [] # empty list for commands
+        #for the first device
         self.init_cmds = []
         self.exp_cmds = []
         self.end_cmds = []
+        # for the second device:
+        self.init_cmds_2nd = []
+        self.exp_cmds_2nd = []
+        self.end_cmds_2nd = []
         self._thread = None
         self._worker = None
         self._threads = []

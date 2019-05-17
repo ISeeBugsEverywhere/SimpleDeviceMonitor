@@ -191,7 +191,7 @@ class ExpWorker(QObject):
             # self.command.emit('==END OF SCRIPT==')
         #     for the second device:
         if self.comDevice is not None and self.active_device_2nd == 0 and not self._require_stop:
-            for i in self.cmds:
+            for i in self.cmds_2nd:
                 if 'delay' in i:
                     s, d = i.split('=')
                     script_delay = int(d)
@@ -211,7 +211,7 @@ class ExpWorker(QObject):
             # self.command.emit('==END OF SCRIPT==')
         elif self.tcpDevice is not None and self.active_device_2nd == 1 and not self._require_stop:
             # print('tcp connected?')
-            for i in self.cmds:
+            for i in self.cmds_2nd:
                 if 'delay' in i:
                     s, d = i.split('=')
                     script_delay = int(d)
@@ -248,7 +248,7 @@ class ExpWorker(QObject):
             # self.command.emit('==END OF SCRIPT==')
         elif self.usbDevice is not None and self.active_device_2nd == 2 and not self._require_stop:
             # print('usb connected?')
-            for i in self.cmds:
+            for i in self.cmds_2nd:
                 if 'delay' in i:
                     s, d = i.split('=')
                     script_delay = int(d)
