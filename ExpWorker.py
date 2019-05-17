@@ -20,6 +20,7 @@ class ExpWorker(QObject):
         self.tcpDevice = None
         self.usbDevice = None
         self.active_device = 0
+        self.active_device_2nd = -1 # already unset
         self.comEnding = None
         self.delay = 0
         self._require_stop = False
@@ -66,6 +67,10 @@ class ExpWorker(QObject):
 
     def set_active_device(self, dev):
         self.active_device = dev #0,1,2
+        pass
+
+    def set_second_device(self, device_string):
+        print('Device string: ', device_string)
         pass
 
     def set_com_ending(self, ending='\n'):

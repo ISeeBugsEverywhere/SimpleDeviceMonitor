@@ -177,6 +177,7 @@ class SDM_window(QtWidgets.QMainWindow):
             self._worker.set_cycle_parameters(dct)
             self._worker.assign_device(com=self.comDevice, tcp=self.tcpDevice, usb=self.usbDevice)
             self._worker.set_active_device(active_device)
+            self._worker.set_second_device(self.ui.second_exp_devBox.currentText())
             self._worker.set_delay(delay)
             self._worker.set_com_ending(self.comEnding)
             # signals:
@@ -341,6 +342,10 @@ class SDM_window(QtWidgets.QMainWindow):
             self.ui.active_exp_devBox.addItem('usbDevice')
             idx = self.ui.active_exp_devBox.findText('usbDevice')
             self.ui.active_exp_devBox.setCurrentIndex(idx)
+            #second device for the experiment
+            self.ui.second_exp_devBox.addItem('usbDevice')
+            idx = self.ui.second_exp_devBox.findText('usbDevice')
+            self.ui.second_exp_devBox.setCurrentIndex(-1)
         except Exception as ex:
             self.ui.infoLabel.setText(str(ex))
         pass
@@ -558,6 +563,11 @@ class SDM_window(QtWidgets.QMainWindow):
             self.ui.active_exp_devBox.addItem('tcpDevice')
             idx = self.ui.active_exp_devBox.findText('tcpDevice')
             self.ui.active_exp_devBox.setCurrentIndex(idx)
+        #
+            self.ui.second_exp_devBox.addItem('tcpDevice')
+            # idx = self.ui.active_exp_devBox.findText('tcpDevice')
+            self.ui.active_exp_devBox.setCurrentIndex(-1)
+            pass
         except Exception as ex:
             print(ex)
             self.append_html_paragraph(str(ex), -1)
@@ -646,6 +656,11 @@ class SDM_window(QtWidgets.QMainWindow):
                 self.ui.active_exp_devBox.addItem('comDevice')
                 idx = self.ui.active_exp_devBox.findText('comDevice')
                 self.ui.active_exp_devBox.setCurrentIndex(idx)
+                #
+                self.ui.second_exp_devBox.addItem('comDevice')
+                # idx = self.ui.active_exp_devBox.findText('comDevice')
+                self.ui.second_exp_devBox.setCurrentIndex(-1)
+                #
                 self.comDevice.readyRead.connect(self.comInfo)
                 idx = self.portWidget.lineBox.currentIndex()
                 if idx == 0:
