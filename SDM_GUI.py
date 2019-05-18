@@ -67,7 +67,11 @@ class SDM_window(QtWidgets.QMainWindow):
         self.ui.execute_init.clicked.connect(self.exec_init_fn)
         self.ui.execute_exp.clicked.connect(self.exec_exp_fn)
         self.ui.execute_end.clicked.connect(self.exec_end_fn)
-
+        # for the second device:
+        self.ui.init2_file_btn.clicked.connect(self.init2fn)
+        self.ui.exec2_file_btn.clicked.connect(self.exp2fn)
+        self.ui.end2_file_btn.clicked.connect(self.end2fn)
+        #
         self.ui.save_exp_btn.clicked.connect(self.save_exp_fn)
         self.ui.clear_exp_btn.clicked.connect(self.clear_exp_fn)
 
@@ -260,6 +264,26 @@ class SDM_window(QtWidgets.QMainWindow):
             pass
         pass
 
+    # self.ui.init2_file_btn.clicked.connect(self.init2fn)
+    # self.ui.exec2_file_btn.clicked.connect(self.exp2fn)
+    # self.ui.end2_file_btn.clicked.connect(self.end2fn)
+
+    def init2fn(self):
+        fname, _ = QtWidgets.QFileDialog().getOpenFileName(None, 'Select init file')
+        if fname:
+            try:
+                f = open(fname, 'r')
+                lines = f.readlines()
+                content = [x.strip() for x in lines]
+                self.init_cmds_2nd = content
+                # for i in self.ini:
+                #     self.ui.commands_view.append(i)
+                f.close()
+                fnm = QtCore.QFileInfo(fname).fileName()
+                self.ui.init2_label.setText(str(fnm))
+            except Exception as ex:
+                self.ui.statusbar.setText('ERR:' + str(ex))
+        pass
 
     def load_init_file_fn(self):
         fname, _ = QtWidgets.QFileDialog().getOpenFileName(None, 'Select init file')
