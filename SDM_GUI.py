@@ -135,6 +135,15 @@ class SDM_window(QtWidgets.QMainWindow):
             self._worker.set_cmds(self.init_cmds)
             self._worker.assign_device(com=self.comDevice, tcp=self.tcpDevice, usb=self.usbDevice)
             self._worker.set_active_device(active_device)
+            # code section for the second device in thread:
+            # =============================================
+            if self.ui.second_exp_devBox.currentIndex() != -1:
+                print(self.ui.second_exp_devBox.currentIndex(), ' index of the second device')
+            #     set all parameters for the second deviceL
+
+            else:
+                print(self.ui.second_exp_devBox.currentIndex(), ' index of the second device')
+            # =============================================
             self._worker.set_delay(delay)
             self._worker.set_com_ending(self.comEnding)
             # signals:
@@ -267,6 +276,40 @@ class SDM_window(QtWidgets.QMainWindow):
     # self.ui.init2_file_btn.clicked.connect(self.init2fn)
     # self.ui.exec2_file_btn.clicked.connect(self.exp2fn)
     # self.ui.end2_file_btn.clicked.connect(self.end2fn)
+
+    def exp2fn(self):
+        fname, _ = QtWidgets.QFileDialog().getOpenFileName(None, 'Select experiment commands file')
+        if fname:
+            try:
+                f = open(fname, 'r')
+                lines = f.readlines()
+                content = [x.strip() for x in lines]
+                self.exp_cmds_2nd = content
+                # for i in self.ini:
+                #     self.ui.commands_view.append(i)
+                f.close()
+                fnm = QtCore.QFileInfo(fname).fileName()
+                self.ui.exec2_label.setText(str(fnm))
+            except Exception as ex:
+                self.ui.statusbar.setText('ERR:' + str(ex))
+        pass
+
+    def end2fn(self):
+        fname, _ = QtWidgets.QFileDialog().getOpenFileName(None, 'Select end file')
+        if fname:
+            try:
+                f = open(fname, 'r')
+                lines = f.readlines()
+                content = [x.strip() for x in lines]
+                self.end_cmds_2nd = content
+                # for i in self.ini:
+                #     self.ui.commands_view.append(i)
+                f.close()
+                fnm = QtCore.QFileInfo(fname).fileName()
+                self.ui.end2_label.setText(str(fnm))
+            except Exception as ex:
+                self.ui.statusbar.setText('ERR:' + str(ex))
+        pass
 
     def init2fn(self):
         fname, _ = QtWidgets.QFileDialog().getOpenFileName(None, 'Select init file')

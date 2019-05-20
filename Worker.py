@@ -18,9 +18,11 @@ class Worker(QObject):
         self.tcpDevice = None
         self.usbDevice = None
         self.active_device = 0
+        self.active_device_2nd = -1
         self.comEnding = None
         self.delay = 0
         self._require_stop = False
+        self.cmds_2nd = None
 
     def assign_device(self, com=None, tcp=None, usb=None):
         if com is not None:
@@ -36,6 +38,18 @@ class Worker(QObject):
         self.active_device = dev #0,1,2
         pass
 
+    def set_active_device_2nd(self, dev):
+        if type(dev) is int:
+            self.active_device_2nd = dev
+        else:
+            if dev == 'usbDevice':
+                self.active_device_2nd = 2
+            elif dev == 'lxiDevce':
+                self.active_device_2nd = 1
+            elif dev == 'comDevice':
+                self.active_device_2nd = 0
+            pass
+
     def set_com_ending(self, ending='\n'):
         self.comEnding = ending
         pass
@@ -43,6 +57,11 @@ class Worker(QObject):
     def set_cmds(self, cmds):
         if cmds is not None:
             self.cmds = cmds
+        pass
+
+    def set_cmds_2nd(self, cmds):
+        if cmds is not None:
+            self.cmds_2nd = cmds
         pass
 
     def set_delay(self, delay=1):
