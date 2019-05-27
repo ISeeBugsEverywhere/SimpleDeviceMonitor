@@ -139,10 +139,14 @@ class SDM_window(QtWidgets.QMainWindow):
             # =============================================
             if self.ui.second_exp_devBox.currentIndex() != -1:
                 print(self.ui.second_exp_devBox.currentIndex(), ' index of the second device')
-            #     set all parameters for the second deviceL
+            #     set all parameters for the second device:
+                self._worker.set_cmds_2nd(self.init_cmds_2nd)
+                self._worker.set_active_device_2nd(self.ui.second_exp_devBox.currentText())
+                pass
 
             else:
                 print(self.ui.second_exp_devBox.currentIndex(), ' index of the second device')
+                pass
             # =============================================
             self._worker.set_delay(delay)
             self._worker.set_com_ending(self.comEnding)
@@ -195,7 +199,16 @@ class SDM_window(QtWidgets.QMainWindow):
             self._worker.set_cycle_parameters(dct)
             self._worker.assign_device(com=self.comDevice, tcp=self.tcpDevice, usb=self.usbDevice)
             self._worker.set_active_device(active_device)
-            self._worker.set_second_device(self.ui.second_exp_devBox.currentText())
+
+            if self.ui.second_exp_devBox.currentIndex() != -1:
+                print(self.ui.second_exp_devBox.currentIndex(), ' index of the second device')
+            #     set all parameters for the second device:
+                self._worker.set_cmds_2nd(self.exp_cmds_2nd)
+                self._worker.set_second_device(self.ui.second_exp_devBox.currentText())
+                pass
+            else:
+                print(self.ui.second_exp_devBox.currentIndex(), ' index of the second device')
+                pass
             self._worker.set_delay(delay)
             self._worker.set_com_ending(self.comEnding)
             # signals:
@@ -258,6 +271,16 @@ class SDM_window(QtWidgets.QMainWindow):
             self._worker.set_active_device(active_device)
             self._worker.set_delay(delay)
             self._worker.set_com_ending(self.comEnding)
+            if self.ui.second_exp_devBox.currentIndex() != -1:
+                print(self.ui.second_exp_devBox.currentIndex(), ' index of the second device')
+            #     set all parameters for the second device:
+                self._worker.set_cmds_2nd(self.end_cmds_2nd)
+                self._worker.set_active_device_2nd(self.ui.second_exp_devBox.currentText())
+                pass
+
+            else:
+                print(self.ui.second_exp_devBox.currentIndex(), ' index of the second device')
+                pass
             # signals:
             self._worker.output.connect(self.update_output)
             self._worker.errors.connect(self.errors_fn)

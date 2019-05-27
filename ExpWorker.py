@@ -70,8 +70,18 @@ class ExpWorker(QObject):
         self.active_device = dev #0,1,2
         pass
 
-    def set_second_device(self, device_string):
-        print('Device string: ', device_string)
+    def set_second_device(self, dev):
+        print('Device string: ', dev)
+        if type(dev) is int:
+            self.active_device_2nd = dev
+        else:
+            if dev == 'usbDevice':
+                self.active_device_2nd = 2
+            elif dev == 'lxiDevce':
+                self.active_device_2nd = 1
+            elif dev == 'comDevice':
+                self.active_device_2nd = 0
+            pass
         pass
 
     def set_com_ending(self, ending='\n'):

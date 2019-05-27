@@ -39,6 +39,11 @@ class Worker(QObject):
         pass
 
     def set_active_device_2nd(self, dev):
+        '''
+        We can pass any value - string or int
+        :param dev:
+        :return:
+        '''
         if type(dev) is int:
             self.active_device_2nd = dev
         else:
