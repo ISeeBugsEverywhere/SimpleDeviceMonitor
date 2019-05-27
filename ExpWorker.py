@@ -93,6 +93,11 @@ class ExpWorker(QObject):
         pass
 
     def exec_exp(self, rpl=''):
+        '''
+        second devise is implemented in ExpWorker
+        :param rpl:
+        :return:
+        '''
         # there will be the main code of this thread
         script_delay = 0
         # for first device:
