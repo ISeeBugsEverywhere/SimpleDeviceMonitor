@@ -88,7 +88,7 @@ For example, first file sets up a source meter, second one contains actual measu
 
 If  **▢Use Cycle** is checked, the file with experiment commands will be executed few times. 
 
-![SDM3](SDM3.png  "SDM3")
+![SDM2](SDM2.png  "SDM2")
 
 Cycle parameters are specified in the '**Cycle parameters**' tab. Here is it possible to choose, if commands need just to be repeated few times, or there is a variable in a script.
 
