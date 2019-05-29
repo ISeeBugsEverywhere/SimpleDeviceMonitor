@@ -137,7 +137,7 @@ class SDM_window(QtWidgets.QMainWindow):
             self._worker.set_active_device(active_device)
             # code section for the second device in thread:
             # =============================================
-            if self.ui.second_exp_devBox.currentIndex() != -1:
+            if self.ui.second_exp_devBox.currentIndex() != -1 or self.ui.second_exp_devBox.currentText() == '[not set]':
                 print(self.ui.second_exp_devBox.currentIndex(), ' index of the second device')
             #     set all parameters for the second device:
                 self._worker.set_cmds_2nd(self.init_cmds_2nd)
@@ -200,7 +200,7 @@ class SDM_window(QtWidgets.QMainWindow):
             self._worker.assign_device(com=self.comDevice, tcp=self.tcpDevice, usb=self.usbDevice)
             self._worker.set_active_device(active_device)
 
-            if self.ui.second_exp_devBox.currentIndex() != -1:
+            if self.ui.second_exp_devBox.currentIndex() != -1 or self.ui.second_exp_devBox.currentText() == '[not set]':
                 print(self.ui.second_exp_devBox.currentIndex(), ' index of the second device')
             #     set all parameters for the second device:
                 self._worker.set_cmds_2nd(self.exp_cmds_2nd)
@@ -271,7 +271,7 @@ class SDM_window(QtWidgets.QMainWindow):
             self._worker.set_active_device(active_device)
             self._worker.set_delay(delay)
             self._worker.set_com_ending(self.comEnding)
-            if self.ui.second_exp_devBox.currentIndex() != -1:
+            if self.ui.second_exp_devBox.currentIndex() != -1 or self.ui.second_exp_devBox.currentText() == '[not set]':
                 print(self.ui.second_exp_devBox.currentIndex(), ' index of the second device')
             #     set all parameters for the second device:
                 self._worker.set_cmds_2nd(self.end_cmds_2nd)
