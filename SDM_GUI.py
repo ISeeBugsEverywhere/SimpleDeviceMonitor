@@ -779,6 +779,10 @@ class SDM_window(QtWidgets.QMainWindow):
     def comInf(self):
         bytes_waiting = self.comDevice.bytesAvailable()
         print('Bytes '+str(bytes_waiting))
+        self.append_html_paragraph('Bytes from forced COM port: '+str(bytes_waiting))
+        if bytes_waiting > 0:
+            baitai = self.comDevice.readAll()
+            self.append_html_paragraph('FORCED answer:\n'+str(baitai))
         pass
 
     def comInfo(self):
