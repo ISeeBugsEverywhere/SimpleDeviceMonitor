@@ -316,6 +316,7 @@ class ExpWorker(QObject):
                     idx = self._from
                     while idx < self._to+self._step and not self._require_stop:
                         if self._out:
+                            print('_out was set, idx=', idx)
                             self.entry_out.emit(str(idx)+self._out_sep)
                         if not self._replace:
                             self.exec_exp()
