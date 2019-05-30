@@ -86,9 +86,11 @@ In order to automatically run some commands, at first write them down into a com
 
 For example, first file sets up a source meter, second one contains actual measurement commands, and third file closes and resets an source meter.
 
+It is possible to run the experiment with two devices too. Setup is quite simple - specify command sets for the second device and execute them. The command sets will be executed set after set - this means, that the application will send commands into the first device, and the into the second device. Therefore pay attention to the logic in command sets.
+
 If  **▢Use Cycle** is checked, the file with experiment commands will be executed few times. 
 
-![SDM2](SDM2.png  "SDM2")
+![SDM3](SDM3.png  "SDM3")
 
 Cycle parameters are specified in the '**Cycle parameters**' tab. Here is it possible to choose, if commands need just to be repeated few times, or there is a variable in a script.
 
