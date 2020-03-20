@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 from SDM_GUI import SDM_window
 import sys
 from PyQt5 import QtWidgets
