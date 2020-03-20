@@ -9,4 +9,14 @@ c1:bswv phse,180
 c1:bswv amp,2
 //ouput:
 delay=2
+//channel 2:
+c2:bswv wvtp,square
+c2:bswv frq,2000
+c2:bswv duty,2
+//c2:bswv sym,99
+//c2:bswv phse,180
+c2:bswv amp,2
+c2:bswv ofst,1
 c1:outp on
+c2:outp on
+

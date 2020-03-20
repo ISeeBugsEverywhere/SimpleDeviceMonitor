@@ -113,7 +113,6 @@ class Worker(QObject):
                     pass
             self.command.emit('==END OF SCRIPT==')
         elif self.usbDevice is not None and self.active_device == 2 and not self._require_stop:
-            print('usb connected?')
             for i in self.cmds:
                 if 'delay' in i:
                     s, d = i.split('=')
@@ -124,7 +123,10 @@ class Worker(QObject):
                     if '?' in i and not self._require_stop:
                         self.command.emit(str(i))
                         answer = self.usbDevice.ask(str(i))
-                        self.output.emit(1, str(answer))
+                        if "fail" in answer.lower():
+                            self.output.emit(-1, str(answer))
+                        else:
+                            self.output.emit(1, str(answer))
                         time.sleep(self.delay)
                         pass
                     else:
