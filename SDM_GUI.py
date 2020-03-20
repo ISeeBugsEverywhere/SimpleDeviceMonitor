@@ -8,6 +8,7 @@ from Worker import Worker
 from USBTMC import USBTMC
 from Device import Device
 from ExpWorker import ExpWorker
+import numpy as np
 
 class SDM_window(QtWidgets.QMainWindow):
     def __init__(self):
@@ -562,8 +563,15 @@ class SDM_window(QtWidgets.QMainWindow):
             self.ui.exp_output_box.moveCursor(QtGui.QTextCursor.End)
         pass
 
-    def append_html_paragraph(self, text, status=0):
-        txt = str(text)
+    def append_html_paragraph(self, text, status=0, c=1):
+        txt = ""
+        if c == 1:
+            txt = str(text)
+        elif c == 0:
+            skip_points = int(self.ui.skipBox.value())
+            data = np.frombuffer(text.encode('ascii')[skip_points:], 'B')
+            txt = str(data)
+            pass
         html_red = '<font color="red">{x}</font>'
         html_black='<font color="black">{x}</font>'
         html_magenta='<font color="purple">{x}</font>'
@@ -673,16 +681,17 @@ class SDM_window(QtWidgets.QMainWindow):
 
 
     def query_fn(self):
+        encoding = self.ui.encodingBox.currentIndex()
         cmd = self.ui.command_entry.currentText()
         if self._active_device is not None and self._active_device == 0:
             self.send_fn()
         elif self._active_device is not None and self._active_device == 1:
             answer = self.tcpDevice.ask(cmd)
             # self.ui.output_box.append(answer)
-            self.append_html_paragraph(answer, self.outd)
+            self.append_html_paragraph(answer, self.outd, encoding)
         elif self._active_device is not None and self._active_device == 2:
             result = self.usbDevice.ask(cmd)
-            self.append_html_paragraph(result, self.outd)
+            self.append_html_paragraph(result, self.outd, encoding)
 
         idx = self.ui.command_entry.findText(cmd)
         if idx == -1:
