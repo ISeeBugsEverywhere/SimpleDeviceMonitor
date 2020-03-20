@@ -38,6 +38,19 @@ class SDM_window(QtWidgets.QMainWindow):
         self._threads = []
         self._active_device = None
         self._is_exp = False
+        # functions:
+        self.update_ports()
+        # new line:
+        self.new_line = '\n'
+        self.err = -1
+        self.out = 0
+        self.outd = 1
+        icon = QtGui.QIcon('port.png')
+        self.setWindowIcon(icon)
+        self._set_actions()
+        pass
+
+    def _set_actions(self):
         # signals:
         self.ui.quitButton.clicked.connect(self.quit_fn)
         self.ui.rescanButton.clicked.connect(self.ui.com_params_widget.rescan_ports)
@@ -60,11 +73,11 @@ class SDM_window(QtWidgets.QMainWindow):
         self.ui.force_read.clicked.connect(self.comInf)
         # events of shortcuts:
         self.quit_shortcut.activated.connect(self.quit_fn)
-        #exp commands:
+        # exp commands:
         self.ui.init_file_Button.clicked.connect(self.load_init_file_fn)
         self.ui.exec_file_Button.clicked.connect(self.load_exp_file_fn)
         self.ui.end_file_Button.clicked.connect(self.load_end_file_fn)
-        #Exec fns:
+        # Exec fns:
         self.ui.execute_init.clicked.connect(self.exec_init_fn)
         self.ui.execute_exp.clicked.connect(self.exec_exp_fn)
         self.ui.execute_end.clicked.connect(self.exec_end_fn)
@@ -78,15 +91,12 @@ class SDM_window(QtWidgets.QMainWindow):
 
         self.ui.cycle_prams_btn.clicked.connect(self.cycle_tab)
         self.ui.return_exp_btn.clicked.connect(self.exp_tab_fn)
-        # functions:
-        self.update_ports()
-        # new line:
-        self.new_line = '\n'
-        self.err = -1
-        self.out = 0
-        self.outd = 1
-        icon = QtGui.QIcon('port.png')
-        self.setWindowIcon(icon)
+
+        self.ui.clearButton.clicked.connect(self.clearButton_fn)
+        pass
+
+    def clearButton_fn(self):
+        self.ui.output_box.clear()
         pass
 
     def exp_tab_fn(self):
