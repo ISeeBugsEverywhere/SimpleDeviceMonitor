@@ -1,0 +1,12 @@
+//siglent SDG 2024X
+c1:outp off
+c2:outp off
+//ramp for c1:
+c1:bswv wvtp,ramp
+c1:bswv frq,2000
+c1:bswv sym,99
+c1:bswv phse,180
+c1:bswv amp,2
+//ouput:
+delay=2
+c1:outp on

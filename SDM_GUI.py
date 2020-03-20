@@ -85,6 +85,8 @@ class SDM_window(QtWidgets.QMainWindow):
         self.err = -1
         self.out = 0
         self.outd = 1
+        icon = QtGui.QIcon('port.png')
+        self.setWindowIcon(icon)
         pass
 
     def exp_tab_fn(self):
