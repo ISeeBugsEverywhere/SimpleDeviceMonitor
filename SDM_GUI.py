@@ -630,7 +630,8 @@ class SDM_window(QtWidgets.QMainWindow):
 
     def cmd_from_file(self):
         print("cmd file?")
-        file_name, rest = QtWidgets.QFileDialog().getOpenFileName(None, caption='Open command set!')
+        qf_dlg = QtWidgets.QFileDialog()
+        file_name, rest = qf_dlg.getOpenFileName(None, caption='Open command set!')
         if file_name:
             fname = QtCore.QFileInfo(file_name).fileName()
             self.ui.statusbar.setText(str(fname)+' was opened.')
