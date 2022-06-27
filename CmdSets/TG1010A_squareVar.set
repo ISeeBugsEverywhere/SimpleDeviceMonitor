@@ -1,0 +1,9 @@
+beep
+square
+freq 1000
+emfpp {x}
+symm 75
+phase 90
+output on
+delay=10
+output off
