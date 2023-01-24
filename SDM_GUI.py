@@ -45,7 +45,7 @@ class SDM_window(QtWidgets.QMainWindow):
         self.err = -1
         self.out = 0
         self.outd = 1
-        icon = QtGui.QIcon('port.png')
+        icon = QtGui.QIcon('GUI/comport.png')
         self.setWindowIcon(icon)
         self._set_actions()
         pass
@@ -623,10 +623,12 @@ class SDM_window(QtWidgets.QMainWindow):
         elif status == 1:
             self.ui.output_box.moveCursor(QtGui.QTextCursor.End)
             self.ui.output_box.setFontWeight(QtGui.QFont.Bold)
-            self.ui.output_box.insertHtml(html_magenta.replace('{x}',txt))
+            # self.ui.output_box.setAlignment(QtCore.Qt.AlignRight)
+            self.ui.output_box.insertHtml('<br/>'+html_magenta.replace('{x}',txt))
             self.ui.output_box.moveCursor(QtGui.QTextCursor.End)
         elif status == -1:
             self.ui.output_box.moveCursor(QtGui.QTextCursor.End)
+            self.ui.output_box.setAlignment(QtCore.Qt.AlignRight)
             self.ui.output_box.insertHtml(html_red.replace('{x}', txt))
             self.ui.output_box.moveCursor(QtGui.QTextCursor.End)
         pass
