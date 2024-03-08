@@ -9,6 +9,7 @@ from USBTMC import USBTMC
 from Device import Device
 from ExpWorker import ExpWorker
 import numpy as np
+import configparser as cfg
 
 class SDM_window(QtWidgets.QMainWindow):
     def __init__(self):
@@ -45,10 +46,22 @@ class SDM_window(QtWidgets.QMainWindow):
         self.err = -1
         self.out = 0
         self.outd = 1
+        self.cfg = cfg.ConfigParser()
         icon = QtGui.QIcon('GUI/comport.png')
         self.setWindowIcon(icon)
+        self.populate()
         self._set_actions()
         pass
+    
+    def populate(self):
+        self.cfg.read('cfg.dat')
+        ips = self.cfg['IP']['ip_used']
+        try:
+            if len(ips) > 0:
+                ips_list = ips.split(';')
+                self.ui.ipBox.addItems(ips_list)
+        except:
+            pass
 
     def _set_actions(self):
         # signals:
@@ -686,6 +699,12 @@ class SDM_window(QtWidgets.QMainWindow):
             self.ui.second_exp_devBox.addItem('tcpDevice')
             # idx = self.ui.active_exp_devBox.findText('tcpDevice')
             self.ui.active_exp_devBox.setCurrentIndex(-1)
+            ips = self.cfg['IP']['ip_used']
+            if ip not in ips:
+                ips = ips+ip+';'
+            self.cfg['IP']['ip_used'] = ips
+            with open('cfg.dat', mode='w') as cfgfile:
+                self.cfg.write(cfgfile)
             pass
         except Exception as ex:
             print(ex)
